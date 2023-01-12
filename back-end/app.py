@@ -52,6 +52,16 @@ def createDatabase():
                     FOREIGN KEY(COMPLAINT_ID) REFERENCES COMPLAINT(COMPLAINT_ID)
                 );
                 """)
+
+    cur.execute("""
+                CREATE TABLE IF NOT EXISTS PARENT(
+                    NAME TEXT,
+                    CHILD TEXT,
+                    PHONE_NUMBER INTEGER,
+                    COMPLAINT_ID INTEGER,
+                    FOREIGN KEY(COMPLAINT_ID) REFERENCES COMPLAINT(COMPLAINT_ID)
+                );
+                """)
     
 
     conn.commit()
